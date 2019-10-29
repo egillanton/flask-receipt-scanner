@@ -1,0 +1,97 @@
+#dz-container{
+    border: dashed 2px #447DF7;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#dz-message{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#dz-error-message{
+    text-align: center;
+    background-color: #dc3544;
+    margin: 5px;
+}
+
+#dz-upload-success-message{
+    text-align: center;
+    background-color: #35a746;
+    margin: 5px;
+
+}
+
+#dz-button{
+    opacity: 0; 
+    border: none;
+    position: absolute;
+    left: 0px;    
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+.img-preview-container{
+    background-color: whitesmoke;
+    height: 620px;
+    text-align: center;
+    border-right: solid 1px darkgray; 
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#image_preview{
+    vertical-align: middle;
+    max-height: 620px;
+    max-width: 500px;
+}
+
+.results-container{
+    /* background-color: #f9f9f9; */
+    max-height: 620px;
+}
+
+
+
+.logo{
+    max-height: 200px;
+    min-height: 200px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+
+.scrollable{
+    max-height: 620px;
+    overflow: auto;
+}
+
+pre {
+    max-height: 577px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre\9;
+    padding: 8px;
+    margin: 0;
+
+}
+td:first-child {
+    font-weight: bold;
+    max-width: 5rem;
+}
+
+td:last-child {
+    text-align: left;
+}

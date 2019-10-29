@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!--Header -->
+        <div class="col">
+            <h1 class="text-center">Receipt Scanner</h1>
+        </div>
+        <div class="w-100"></div>
+        <!-- Dragzone-->
+        <div id="dz-container" class="col">
+            <div class="row" id="uploadImageContainer">
+                <div id="dz-message" class="col">
+                    <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+                    Upload a receipt here<br>
+                    <small><strong>Supported files:</strong> JPEG/JPG/PNG images and PDF documents.</small>
+                </div>
+                <div class="w-100"></div>
+                <div id="dz-error-message" class="col" style="display:none;">
+                    <i class="fas fa-exclamation-triangle fa-fw"></i>
+                    Error
+                </div>
+                <div class="w-100"></div>
+                <div id="dz-upload-success-message" class="col" style="display:none;">
+                    <i class="fas fa-check-circle fa-fw"></i>
+                    Your receipt finished uploading
+                </div>
+            </div>
+            <input type="file" id="dz-button" onchange="previewFile()"/>
+        </div>
+        <div class="w-100"></div>
+        <!--Image Previewer-->
+        <div class="col img-preview-container">
+            <span class="helper"></span>
+            <img id="image_preview" src=""/>
+        </div>
+        <!-- Results-->
+        <div class="col results-container">
+            <nav>
+                <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-results-tab" data-toggle="tab" href="#nav-results" role="tab" aria-controls="nav-results" aria-selected="true">
+                    <i class="fas fa-file-invoice"></i>
+                    Results</a>
+                    <a class="nav-item nav-link" id="nav-ocr-tab" data-toggle="tab" href="#nav-ocr" role="tab" aria-controls="nav-ocr" aria-selected="false">
+                    <i class="fas fa-file-alt"></i>
+                    OCR</a>
+                    <a class="nav-item nav-link" id="nav-raw-tab" data-toggle="tab" href="#nav-raw" role="tab" aria-controls="nav-raw" aria-selected="false">
+                    <i class="fas fa-file-code"></i>
+                    Raw JSON</a>
+                </div>
+            </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <!--Results Table-->
+            <div class="tab-pane fade show active scrollable" id="nav-results" role="tabpanel" aria-labelledby="nav-results-tab">
+                <div class="text-center my-2">
+                    <img src="..." class="figure-img img-fluid rounded img-thumbnail logo" >                            
+                </div>
+                <table class="table table-borderless table-sm">
+                    <tbody>
+                        <tr class="vendor-name">
+                            <td class="results-label">Vendor's Name:</td>
+                            <td class="results-value"></td>
+                        </tr>
+                        <tr class="vendor-address">
+                            <td class="results-label">Address:</td>
+                            <td class="results-value"></td>
+                        </tr>
+                        <tr class="vendor-phone">
+                            <td class="results-label">Phone Number:</td>
+                            <td class="results-value"></td>
+                        </tr>
+                        <tr class="invoice">
+                            <td class="results-label">Invoice Number:</td>
+                            <td class="results-value"></td>
+                        </tr>
+                        <tr class="date">
+                            <td class="results-label">Date:</td>
+                            <td class="results-value"></td>
+                        </tr>
+                        </tr>
+                        <tr class="line-items" style="display: none;">
+                            <td colspan="2">
+                                <table class="table-line-items" width="100%">
+                                    <tbody></tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="subtotal dashline-top">
+                            <td class="results-label">Subtotal:</td>
+                            <td class="results-amount"></td>
+                        </tr>
+                        <tr class="tax">
+                            <td class="results-label">Tax:</td>
+                            <td class="results-amount"></td>
+                        </tr>
+                        <tr class="total">
+                            <td class="results-label">Total Amount:</td>
+                            <td class="results-amount"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--OCR -->
+            <div class="tab-pane fade scrollable" id="nav-ocr" role="tabpanel" aria-labelledby="nav-ocr-tab">
+                <pre id="results-ocr"></pre>
+            </div>
+            <!--RAW JSON -->
+            <div class="tab-pane fade scrollable" id="nav-raw" role="tabpanel" aria-labelledby="nav-raw-tab">
+                <pre id="results-raw"></pre>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dropzone.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/recipt_scanner.js') }}"></script>
+{% endblock %}
