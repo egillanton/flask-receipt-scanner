@@ -2,7 +2,7 @@
 Flask - Receipt Scanner
 </h1>
 
-<img src="img/screencapture.png" alt="Screencapture" align="center"/>
+<img src="https://user-images.githubusercontent.com/9976294/69360165-10fea280-0c58-11ea-835f-b0df9bdc9efc.png" alt="Screencapture" align="center"/>
 
 ## Table of Contents
 <!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->
